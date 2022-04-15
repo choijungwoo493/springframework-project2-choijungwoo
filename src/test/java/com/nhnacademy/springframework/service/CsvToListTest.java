@@ -1,16 +1,14 @@
 package com.nhnacademy.springframework.service;
 
-import com.nhnacademy.springframework.config.Mainconfiguration;
+import com.nhnacademy.springframework.repository.CsvWaterBill;
+import com.nhnacademy.springframework.service.parser.CsvToList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.io.IOException;
-import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class CsvToListTest {
 
@@ -34,10 +32,7 @@ class CsvToListTest {
     @DisplayName("csvWaterBill에 잘 로드 되었나 확인")
     @Test
     void LoadTest() throws IOException {
-        List<WaterBill> list = csvToList.readToList(csvFile);
-        assertThat(csvWaterBill.findAll().size() == 0).isTrue();
-        csvWaterBill.load(list);
-        assertThat(csvWaterBill.findAll().size() == 303).isTrue();
+        assertThat(csvToList.readToList("Tariff_20220331.csv").size() == 303);
 
     }
 }

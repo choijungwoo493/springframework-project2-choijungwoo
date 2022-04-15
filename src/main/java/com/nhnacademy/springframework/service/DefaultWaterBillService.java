@@ -1,5 +1,6 @@
 package com.nhnacademy.springframework.service;
 
+import com.nhnacademy.springframework.repository.WaterBills;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,13 +26,6 @@ public class DefaultWaterBillService implements WaterBillService {
                 .sorted(Comparator.comparing(WaterBill::getUnitPrice))
                 .limit(5)
                 .collect(Collectors.toList());
-        for (int i = 0; i < waterBillList.size(); i++) {
-            String city = waterBillList.get(i).getCity();
-            String sector= waterBillList.get(i).getSector();
-            int unitPrice = waterBillList.get(i).getUnitPrice();
-            int usePrice = waterBillList.get(i).getUnitPrice() * waterUse;
-            System.out.printf("WaterBill{city='%s', sector='%s', unitPrice=%d, billTotal=%d}",city,sector,unitPrice,usePrice);
-        }
 
         return waterBillList;
     }

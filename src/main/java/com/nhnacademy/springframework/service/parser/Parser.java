@@ -1,4 +1,6 @@
-package com.nhnacademy.springframework.service;
+package com.nhnacademy.springframework.service.parser;
+
+import com.nhnacademy.springframework.service.WaterBill;
 
 import java.io.IOException;
 import java.util.List;
