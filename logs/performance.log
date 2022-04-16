@@ -160,3 +160,65 @@ WaterBill{city='  금산군 ', sector=' 정수용 ', unitPrice=433, billTotal=43
 WaterBill{city='  나주시 ', sector=' 임시용(상) ', unitPrice=433, billTotal=433 }
 WaterBill{city='  장흥군 ', sector=' 임시용(상) ', unitPrice=433, billTotal=433 }
 
+01:02:39.383 [main] INFO  c.n.s.aspect.LoggerAspect - StopWatch 'load': running time = 37082791 ns
+---------------------------------------------
+ns         %     Task name
+---------------------------------------------
+037082791  100%  load
+
+01:02:39.383 [main] INFO  c.n.s.aspect.LoggerAspect - StopWatch 'load': running time = 37082791 ns
+---------------------------------------------
+ns         %     Task name
+---------------------------------------------
+037082791  100%  load
+
+01:02:39.386 [main] INFO  c.n.s.aspect.LoggerAspect - StopWatch 'findAll': running time = 112250 ns
+---------------------------------------------
+ns         %     Task name
+---------------------------------------------
+000112250  100%  findAll
+
+01:02:39.386 [main] INFO  c.n.s.aspect.LoggerAspect - StopWatch 'findAll': running time = 112250 ns
+---------------------------------------------
+ns         %     Task name
+---------------------------------------------
+000112250  100%  findAll
+
+01:02:39.416 [main] INFO  c.n.s.s.report.BaseResultReport - 
+WaterBill{city='  고령군 ', sector=' 공업용 ', unitPrice=370, billTotal=370 }
+WaterBill{city='  통영시 ', sector=' 원정수판매용 ', unitPrice=413, billTotal=413 }
+WaterBill{city='  금산군 ', sector=' 정수용 ', unitPrice=433, billTotal=433 }
+WaterBill{city='  나주시 ', sector=' 임시용(상) ', unitPrice=433, billTotal=433 }
+WaterBill{city='  장흥군 ', sector=' 임시용(상) ', unitPrice=433, billTotal=433 }
+
+01:03:11.516 [main] INFO  c.n.s.aspect.LoggerAspect - StopWatch 'load': running time = 42305000 ns
+---------------------------------------------
+ns         %     Task name
+---------------------------------------------
+042305000  100%  load
+
+01:03:11.516 [main] INFO  c.n.s.aspect.LoggerAspect - StopWatch 'load': running time = 42305000 ns
+---------------------------------------------
+ns         %     Task name
+---------------------------------------------
+042305000  100%  load
+
+01:03:11.519 [main] INFO  c.n.s.aspect.LoggerAspect - StopWatch 'findAll': running time = 105042 ns
+---------------------------------------------
+ns         %     Task name
+---------------------------------------------
+000105042  100%  findAll
+
+01:03:11.519 [main] INFO  c.n.s.aspect.LoggerAspect - StopWatch 'findAll': running time = 105042 ns
+---------------------------------------------
+ns         %     Task name
+---------------------------------------------
+000105042  100%  findAll
+
+01:03:11.559 [main] INFO  c.n.s.s.report.BaseResultReport - 
+WaterBill{city='  고령군 ', sector=' 공업용 ', unitPrice=370, billTotal=370 }
+WaterBill{city='  통영시 ', sector=' 원정수판매용 ', unitPrice=413, billTotal=413 }
+WaterBill{city='  금산군 ', sector=' 정수용 ', unitPrice=433, billTotal=433 }
+WaterBill{city='  나주시 ', sector=' 임시용(상) ', unitPrice=433, billTotal=433 }
+WaterBill{city='  장흥군 ', sector=' 임시용(상) ', unitPrice=433, billTotal=433 }
+

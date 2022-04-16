@@ -21,13 +21,11 @@ public class DefaultWaterBillService implements WaterBillService {
 
     @Override
     public List<WaterBill> get5CitiesByWaterUseAndSortByUnitPrice(int waterUse) {
-        List<WaterBill> waterBillList = waterBills.findAll().stream()
+        return waterBills.findAll().stream()
                 .filter(s->(s.getUnitStart() <= waterUse && s.getUnitEnd() >= waterUse))
                 .sorted(Comparator.comparing(WaterBill::getUnitPrice))
                 .limit(5)
                 .collect(Collectors.toList());
-
-        return waterBillList;
     }
 
 

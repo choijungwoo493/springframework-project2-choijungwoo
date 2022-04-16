@@ -19,11 +19,11 @@ public class LoggerAspect {
     public Object timeCheck(ProceedingJoinPoint pjp) throws Throwable{
         StopWatch stopWatch = new StopWatch(pjp.getSignature().getName());
         try{
-            stopWatch.start();
+            stopWatch.start(pjp.getSignature().getName());
             return pjp.proceed();
         }finally {
             stopWatch.stop();
-            log.info(stopWatch.prettyPrint());
+            log.info("\n" + stopWatch.prettyPrint());
         }
     }
 
@@ -32,7 +32,8 @@ public class LoggerAspect {
         try{
             CsvWaterBill.isFileLoaded();
         }catch (IllegalStateException e){
-            log.info(e);
+            log.info("파일 로드가 안되어있습니다");
+            throw new IllegalStateException("파일로드가 안되어있습니다");
         }
     }
 }

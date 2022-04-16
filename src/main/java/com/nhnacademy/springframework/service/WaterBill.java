@@ -11,6 +11,19 @@ public class WaterBill {
     private final int unitEnd;
     private final int unitPrice;
 
+    @Override
+    public String toString() {
+        return "WaterBill{" +
+                "waterBillSeq=" + waterBillSeq +
+                ", city='" + city + '\'' +
+                ", sector='" + sector + '\'' +
+                ", stage=" + stage +
+                ", unitStart=" + unitStart +
+                ", unitEnd=" + unitEnd +
+                ", unitPrice=" + unitPrice +
+                '}';
+    }
+
     public WaterBill(int waterBillSeq, String city, String sector, int stage, int unitStart, int unitEnd, int unitPrice) {
         this.waterBillSeq = waterBillSeq;
         this.city = city;

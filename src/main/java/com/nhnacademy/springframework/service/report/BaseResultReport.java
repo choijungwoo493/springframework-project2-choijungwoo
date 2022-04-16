@@ -11,13 +11,12 @@ import java.util.List;
 public class BaseResultReport implements ResultReport {
 
     private static final Log log = LogFactory.getLog(BaseResultReport.class);
-    public void print(List<WaterBill> waterBillList){
+    public void printResult(List<WaterBill> waterBillList){
         log.info(setFormat(waterBillList));
-
     }
 
     public String setFormat(List<WaterBill> waterBillList){
-        String message = "";
+        String message = "\n";
         for (int i = 0; i < waterBillList.size(); i++) {
             String city = waterBillList.get(i).getCity();
             String sector = waterBillList.get(i).getSector();

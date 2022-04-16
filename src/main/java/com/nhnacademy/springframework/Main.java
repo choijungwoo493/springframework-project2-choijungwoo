@@ -1,5 +1,6 @@
 package com.nhnacademy.springframework;
 
+import com.nhnacademy.springframework.aspect.LoggerAspect;
 import com.nhnacademy.springframework.config.Mainconfiguration;
 import com.nhnacademy.springframework.repository.CsvWaterBill;
 import com.nhnacademy.springframework.service.report.BaseResultReport;
@@ -13,7 +14,6 @@ public class Main {
     public static void main(String[] args) throws IOException {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Mainconfiguration.class);
 
-
         String fileName = "Tariff_20220331.csv";
         CsvWaterBill csvWaterBill = context.getBean("csvWaterBill",CsvWaterBill.class);
         WaterBillService defaultWaterBillService = context.getBean("defaultWaterBillService",DefaultWaterBillService.class);
@@ -21,7 +21,7 @@ public class Main {
 
         csvWaterBill.load(fileName);
         List<WaterBill> list1 = defaultWaterBillService.get5CitiesByWaterUseAndSortByUnitPrice(1000);
-        baseResultReport.print(list1);
+        baseResultReport.printResult(list1);
 
     }
 }

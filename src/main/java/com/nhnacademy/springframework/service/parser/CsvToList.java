@@ -16,16 +16,12 @@ import java.util.List;
 public class CsvToList implements Parser {
     private static final Log log = LogFactory.getLog(CsvToList.class);
 
-    public static void main(String[] args) {
-        CsvToList csvToList = new CsvToList();
-        System.out.println(csvToList.readToList("Tariff_20220331.csv"));
-    }
     public List<WaterBill> readToList(String path){
         List<WaterBill> list = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream(path)))) {
             String line;
-            br.readLine();
+            br.readLine();  // 첫번째줄은 생략하기위함
             while ((line = br.readLine()) != null) {
                 String[] token = line.split(",");
                 WaterBill tempList = new WaterBill(Integer.parseInt(token[0]), token[1], token[2], Integer.parseInt(token[3]), Integer.parseInt(token[4]), Integer.parseInt(token[5]), Integer.parseInt(token[6]));
