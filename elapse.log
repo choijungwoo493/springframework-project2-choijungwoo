@@ -1,0 +1,49 @@
+20:42:09.817 [main] INFO  c.n.s.aspect.LoggerAspect - 
+StopWatch 'load': running time = 308824333 ns
+---------------------------------------------
+ns         %     Task name
+---------------------------------------------
+308824333  100%  load
+
+20:42:09.817 [main] INFO  c.n.s.aspect.LoggerAspect - 
+StopWatch 'load': running time = 308824333 ns
+---------------------------------------------
+ns         %     Task name
+---------------------------------------------
+308824333  100%  load
+
+20:42:14.499 [main] INFO  c.n.s.aspect.LoggerAspect - 
+StopWatch 'findAll': running time = 201292 ns
+---------------------------------------------
+ns         %     Task name
+---------------------------------------------
+000201292  100%  findAll
+
+20:42:14.499 [main] INFO  c.n.s.aspect.LoggerAspect - 
+StopWatch 'findAll': running time = 201292 ns
+---------------------------------------------
+ns         %     Task name
+---------------------------------------------
+000201292  100%  findAll
+
+20:42:14.514 [main] INFO  c.n.s.aspect.LoggerAspect - 
+StopWatch 'get5CitiesByWaterUseAndSortByUnitPrice': running time = 70146625 ns
+---------------------------------------------
+ns         %     Task name
+---------------------------------------------
+070146625  100%  get5CitiesByWaterUseAndSortByUnitPrice
+
+20:42:14.514 [main] INFO  c.n.s.aspect.LoggerAspect - 
+StopWatch 'get5CitiesByWaterUseAndSortByUnitPrice': running time = 70146625 ns
+---------------------------------------------
+ns         %     Task name
+---------------------------------------------
+070146625  100%  get5CitiesByWaterUseAndSortByUnitPrice
+
+20:42:14.535 [main] INFO  c.n.s.s.report.BaseResultReport - 
+WaterBill{city=' 고령군', sector='공업용', unitPrice=370, billTotal=185000 }
+WaterBill{city=' 통영시', sector='원정수판매용', unitPrice=413, billTotal=206500 }
+WaterBill{city=' 청송군', sector='욕탕용', unitPrice=420, billTotal=210000 }
+WaterBill{city=' 금산군', sector='정수용', unitPrice=433, billTotal=216500 }
+WaterBill{city=' 나주시', sector='임시용(상)', unitPrice=433, billTotal=216500 }
+
