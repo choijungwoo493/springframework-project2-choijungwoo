@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ResultReport {
 
-    void printResult(List<WaterBill> waterBillList);
+    void printResult(List<WaterBill> waterBillList,int waterUse);
 
-    String setFormat(List<WaterBill> waterBillList);
+    String setFormat(List<WaterBill> waterBillList,int waterUse);
 }

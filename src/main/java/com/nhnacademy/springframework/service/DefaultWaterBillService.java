@@ -22,7 +22,7 @@ public class DefaultWaterBillService implements WaterBillService {
     @Override
     public List<WaterBill> get5CitiesByWaterUseAndSortByUnitPrice(int waterUse) {
         return waterBills.findAll().stream()
-                .filter(s->(s.getUnitStart() <= waterUse && s.getUnitEnd() >= waterUse))
+                .filter(waterBill->(waterBill.getUnitStart() <= waterUse && waterBill.getUnitEnd() >= waterUse))
                 .sorted(Comparator.comparing(WaterBill::getUnitPrice))
                 .limit(5)
                 .collect(Collectors.toList());

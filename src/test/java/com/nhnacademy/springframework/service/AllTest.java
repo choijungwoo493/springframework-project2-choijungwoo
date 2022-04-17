@@ -28,12 +28,11 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 public class AllTest {
 
     AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Mainconfiguration.class);
-    String fileName = "Tariff_20220331.csv";
+    String fileName = "Tariff_20220331.json";
     CsvWaterBill csvWaterBill;
     WaterBillService defaultWaterBillService;
     BaseResultReport baseResultReport;
     Parser csvToList;
-    LoggerAspect loggerAspect;
 
     @BeforeEach()
     void setUp() {
@@ -42,16 +41,6 @@ public class AllTest {
         baseResultReport = context.getBean("baseResultReport", BaseResultReport.class);
         csvToList = context.getBean("csvToList", CsvToList.class);
 
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        return Objects.equals(o.toString(), this.toString());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(csvWaterBill);
     }
 
     @DisplayName("csvWaterBill load method 의 parser 구현체인 csvToList의 함수인 readToList를 쓴다." +

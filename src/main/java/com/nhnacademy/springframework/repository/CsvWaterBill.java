@@ -1,20 +1,28 @@
 package com.nhnacademy.springframework.repository;
 
 import com.nhnacademy.springframework.service.WaterBill;
-import com.nhnacademy.springframework.service.parser.CsvToList;
 import com.nhnacademy.springframework.service.parser.Parser;
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Component
 public class CsvWaterBill implements WaterBills {
 
     static boolean isFileLoaded = false;
-    Parser parser = new CsvToList();
 
+
+    private Parser parser;
+
+    @Autowired
+    @Qualifier("Json")    // Csv
+    private void Parser(Parser parser){
+        this.parser = parser;
+    }
 
     private List<WaterBill> waterBill = new ArrayList<>();
 
@@ -24,11 +32,18 @@ public class CsvWaterBill implements WaterBills {
         }
     }
 
+    public static void changeValueTrueByLoading(){
+        if(!isFileLoaded){
+            isFileLoaded = true;
+        }
+    }
     @Override
     public void load(String path) throws IOException {
+
         this.waterBill = parser.readToList(path);
-        isFileLoaded = true;
+        changeValueTrueByLoading();
     }
+
 
     @Override
     public List<WaterBill> findAll() {

@@ -1,15 +1,27 @@
 package com.nhnacademy.springframework.service;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class WaterBill {
-//    순번 , 지자체명 , 업종 , 단계 , 구간시작(세제곱미터)  , 구간끝(세제곱미터)  , 구간금액(원)  , 단계별 기본요금(원)
-//            1, 동두천시 , 가정용 ,1,1,20,690,
-    private final int waterBillSeq;
-    private final String city;
-    private final String sector;
-    private final int stage;
-    private final int unitStart;
-    private final int unitEnd;
-    private final int unitPrice;
+    @JsonProperty("순번")
+    private int waterBillSeq;
+    @JsonProperty("지자체명")
+    private String city;
+    @JsonProperty("업종")
+    private String sector;
+    @JsonProperty("단계")
+    private int stage;
+    @JsonProperty("구간시작(세제곱미터)")
+    private int unitStart;
+    @JsonProperty("구간끝(세제곱미터)")
+    private int unitEnd;
+    @JsonProperty("구간금액(원)")
+    private int unitPrice;
+//    @JsonProperty("단계별 기본요금(원)")
+//    private int unitPrice2;
+
 
     @Override
     public String toString() {
@@ -33,9 +45,7 @@ public class WaterBill {
         this.unitEnd = unitEnd;
         this.unitPrice = unitPrice;
     }
-
-    public int getWaterBillSeq() {
-        return waterBillSeq;
+    public WaterBill() {
     }
 
     public String getCity() {
@@ -46,9 +56,6 @@ public class WaterBill {
         return sector;
     }
 
-    public int getStage() {
-        return stage;
-    }
 
     public int getUnitStart() {
         return unitStart;

@@ -5,6 +5,7 @@ import com.nhnacademy.springframework.repository.CsvWaterBill;
 import com.nhnacademy.springframework.service.parser.CsvToList;
 import com.nhnacademy.springframework.service.parser.Parser;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -31,16 +32,13 @@ class CsvWaterBillTest {
     * load() method는 통합테스트때 빈으로 만들고 테스트 할 예정
      */
 
-//    @DisplayName("load 실행 잘 동작")
-//    @Test
-//    void load() throws IOException {
-//        assertThatThrownBy(()->csvWaterBill.findAll())
-//                .isInstanceOf(IllegalStateException.class)
-//                .hasMessage("파일로딩이 완료되지 않았습니다");
-//        csvWaterBill.load(fileName);
-//        assertThat(csvWaterBill.findAll().size() == 303).isTrue();
-//
-//    }
+    @DisplayName("load 실행 잘 동작")
+    @Test
+    void load() throws IOException {
+        csvWaterBill.load(fileName);
+        assertThat(csvWaterBill.findAll().size() == 303).isTrue();
+
+    }
 
     @Test
     void findAll() throws IOException {

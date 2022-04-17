@@ -1,6 +1,5 @@
 package com.nhnacademy.springframework;
 
-import com.nhnacademy.springframework.aspect.LoggerAspect;
 import com.nhnacademy.springframework.config.Mainconfiguration;
 import com.nhnacademy.springframework.repository.CsvWaterBill;
 import com.nhnacademy.springframework.service.report.BaseResultReport;
@@ -9,19 +8,22 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
+
+    static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) throws IOException {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Mainconfiguration.class);
 
-        String fileName = "Tariff_20220331.csv";
+        String fileName = "Tariff_20220331.json";
         CsvWaterBill csvWaterBill = context.getBean("csvWaterBill",CsvWaterBill.class);
         WaterBillService defaultWaterBillService = context.getBean("defaultWaterBillService",DefaultWaterBillService.class);
         BaseResultReport baseResultReport = context.getBean("baseResultReport",BaseResultReport.class);
-
         csvWaterBill.load(fileName);
-        List<WaterBill> list1 = defaultWaterBillService.get5CitiesByWaterUseAndSortByUnitPrice(1000);
-        baseResultReport.printResult(list1);
+        int waterUse = scanner.nextInt();
+        List<WaterBill> list1 = defaultWaterBillService.get5CitiesByWaterUseAndSortByUnitPrice(waterUse);
+        baseResultReport.printResult(list1,waterUse);
 
     }
 }
