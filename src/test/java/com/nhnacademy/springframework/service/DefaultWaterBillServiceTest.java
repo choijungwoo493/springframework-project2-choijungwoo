@@ -15,11 +15,9 @@ class DefaultWaterBillServiceTest {
 
     WaterBills csvWaterBill;
     CsvToList csvToList;
-    String csvFile = "Tariff_2022033®1.csv";
-    List<WaterBill> list;
     WaterBillService defaultWaterBillService;
-    WaterBills waterBills;
-    String fileName = "Tariff_20220331.csv";
+    String fileName = "Tariff_20220331.json";
+
     @BeforeEach()
     void setUp() throws IOException {
         csvWaterBill = new CsvWaterBill();
@@ -34,7 +32,7 @@ class DefaultWaterBillServiceTest {
         List<WaterBill> list = defaultWaterBillService.get5CitiesByWaterUseAndSortByUnitPrice(1000);
 
         assertThat(list.size() == 5).isTrue();
-        list.stream().filter(s->s.getUnitStart()<= 1000 && s.getUnitEnd() >= 1000);
+        list.stream().filter(s -> s.getUnitStart() <= 1000 && s.getUnitEnd() >= 1000);
         assertThat(list.size() == 5).isTrue();
 
 

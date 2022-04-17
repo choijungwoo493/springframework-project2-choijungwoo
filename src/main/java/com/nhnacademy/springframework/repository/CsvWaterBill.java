@@ -12,18 +12,9 @@ import java.util.List;
 
 @Component
 public class CsvWaterBill implements WaterBills {
-
     static boolean isFileLoaded = false;
 
-
     private Parser parser;
-
-    @Autowired
-    @Qualifier("Json")    // Csv
-    private void Parser(Parser parser){
-        this.parser = parser;
-    }
-
     private List<WaterBill> waterBill = new ArrayList<>();
 
     public static void isFileLoaded() {
@@ -32,11 +23,18 @@ public class CsvWaterBill implements WaterBills {
         }
     }
 
-    public static void changeValueTrueByLoading(){
-        if(!isFileLoaded){
+    public static void changeValueTrueByLoading() {
+        if (!isFileLoaded) {
             isFileLoaded = true;
         }
     }
+
+    @Autowired
+    @Qualifier("Json")
+    private void setParser(Parser parser) {
+        this.parser = parser;
+    }
+
     @Override
     public void load(String path) throws IOException {
 

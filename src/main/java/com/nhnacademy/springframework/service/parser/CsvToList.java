@@ -13,14 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 @Service
 @Component("Csv")
 public class CsvToList implements Parser {
     private static final Log log = LogFactory.getLog(CsvToList.class);
 
     @Override
-    public List<WaterBill> readToList(String path){
+    public List<WaterBill> readToList(String path) {
         List<WaterBill> list = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream(path)))) {

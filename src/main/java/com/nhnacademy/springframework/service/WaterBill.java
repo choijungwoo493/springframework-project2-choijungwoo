@@ -19,9 +19,20 @@ public class WaterBill {
     private int unitEnd;
     @JsonProperty("구간금액(원)")
     private int unitPrice;
-//    @JsonProperty("단계별 기본요금(원)")
-//    private int unitPrice2;
 
+
+    public WaterBill(int waterBillSeq, String city, String sector, int stage, int unitStart, int unitEnd, int unitPrice) {
+        this.waterBillSeq = waterBillSeq;
+        this.city = city;
+        this.sector = sector;
+        this.stage = stage;
+        this.unitStart = unitStart;
+        this.unitEnd = unitEnd;
+        this.unitPrice = unitPrice;
+    }
+
+    public WaterBill() {
+    }
 
     @Override
     public String toString() {
@@ -34,18 +45,6 @@ public class WaterBill {
                 ", unitEnd=" + unitEnd +
                 ", unitPrice=" + unitPrice +
                 '}';
-    }
-
-    public WaterBill(int waterBillSeq, String city, String sector, int stage, int unitStart, int unitEnd, int unitPrice) {
-        this.waterBillSeq = waterBillSeq;
-        this.city = city;
-        this.sector = sector;
-        this.stage = stage;
-        this.unitStart = unitStart;
-        this.unitEnd = unitEnd;
-        this.unitPrice = unitPrice;
-    }
-    public WaterBill() {
     }
 
     public String getCity() {

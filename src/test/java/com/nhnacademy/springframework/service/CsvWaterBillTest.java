@@ -15,7 +15,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 class CsvWaterBillTest {
 
-    String fileName = "Tariff_20220331.csv";
+    String fileName = "Tariff_20220331.json";
     Parser csvToList;
     CsvWaterBill csvWaterBill;
     LoggerAspect loggerAspect;
@@ -35,8 +35,8 @@ class CsvWaterBillTest {
     @DisplayName("load 실행 잘 동작")
     @Test
     void load() throws IOException {
+        assertThat(csvWaterBill.findAll().size() == 0).isTrue();
         csvWaterBill.load(fileName);
-        assertThat(csvWaterBill.findAll().size() == 303).isTrue();
 
     }
 

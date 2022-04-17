@@ -1,5 +1,6 @@
 package com.nhnacademy.springframework.aspect;
 
+import com.nhnacademy.springframework.Main;
 import com.nhnacademy.springframework.repository.CsvWaterBill;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -13,25 +14,25 @@ import org.springframework.util.StopWatch;
 @Aspect
 @Component
 public class LoggerAspect {
-    private static final Log log = LogFactory.getLog(LoggerAspect.class);
+    private static final Log log = LogFactory.getLog(Main.class);
 
     @Around("execution(* com.nhnacademy.springframework.*.*.*(..))")
-    public Object timeCheck(ProceedingJoinPoint pjp) throws Throwable{
+    public Object timeCheck(ProceedingJoinPoint pjp) throws Throwable {
         StopWatch stopWatch = new StopWatch(pjp.getSignature().getName());
-        try{
+        try {
             stopWatch.start(pjp.getSignature().getName());
             return pjp.proceed();
-        }finally {
+        } finally {
             stopWatch.stop();
             log.info("\n" + stopWatch.prettyPrint());
         }
     }
 
     @Before("execution(* com.nhnacademy.springframework.repository.CsvWaterBill.findAll())")
-    public void loadError(){
-        try{
+    public void loadError() {
+        try {
             CsvWaterBill.isFileLoaded();
-        }catch (IllegalStateException e){
+        } catch (IllegalStateException e) {
             log.info("파일 로드가 안되어있습니다");
             throw new IllegalStateException("파일로드가 안되어있습니다");
         }

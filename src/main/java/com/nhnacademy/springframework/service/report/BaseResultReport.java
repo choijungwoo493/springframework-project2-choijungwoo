@@ -11,19 +11,23 @@ import java.util.List;
 public class BaseResultReport implements ResultReport {
 
     private static final Log log = LogFactory.getLog(BaseResultReport.class);
-    public void printResult(List<WaterBill> waterBillList,int waterUse){
+
+    public void printResult(List<WaterBill> waterBillList, int waterUse) {
         log.info(setFormat(waterBillList, waterUse));
     }
 
-    public String setFormat(List<WaterBill> waterBillList,int waterUse){
-        String message = "\n";
-        for (int i = 0; i < waterBillList.size(); i++) {
-            String city = waterBillList.get(i).getCity();
-            String sector = waterBillList.get(i).getSector();
-            int unitPrice = waterBillList.get(i).getUnitPrice();
-            int usePrice = waterBillList.get(i).getUnitPrice() * waterUse;
-            message += "WaterBill{city=' " + city + "', sector='" + sector + "', unitPrice=" + unitPrice + ", billTotal=" + usePrice + " }\n";
+    public String setFormat(List<WaterBill> waterBillList, int waterUse) {
+        var message = new StringBuilder("\n");
+        for (WaterBill waterBill : waterBillList) {
+            String city = waterBill.getCity();
+            String sector = waterBill.getSector();
+            int unitPrice = waterBill.getUnitPrice();
+            int usePrice = waterBill.getUnitPrice() * waterUse;
+            message.append(toString(city, sector, unitPrice, usePrice));
         }
-        return message;
+        return message.toString();
+    }
+    public String toString(String city,String sector,int unitPrice,int usePrice) {
+        return "WaterBill{city=' " + city + "', sector='" + sector + "', unitPrice=" + unitPrice + ", billTotal=" + usePrice + " }\n";
     }
 }

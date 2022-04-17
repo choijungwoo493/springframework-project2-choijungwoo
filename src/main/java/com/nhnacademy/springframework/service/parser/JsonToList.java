@@ -2,19 +2,17 @@ package com.nhnacademy.springframework.service.parser;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nhnacademy.springframework.service.WaterBill;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 
 @Service
 @Component("Json")
-public class JsonToList implements Parser{
-    private static final Log log = LogFactory.getLog(JsonToList.class);
+public class JsonToList implements Parser {
 
     @Override
     public List<WaterBill> readToList(String path) throws IOException {
